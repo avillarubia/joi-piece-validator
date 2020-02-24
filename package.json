@@ -1,0 +1,25 @@
+{
+  "name": "joi-piece-validator",
+  "version": "1.0.12",
+  "description": "",
+  "main": "piecesValidator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aljohn villarubia",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^16.1.8"
+  },
+  "keywords": [
+    "joi",
+    "piece",
+    "validate",
+    "validator",
+    "part",
+    "pieces",
+    "joi-piece-validator",
+    "joi-part-validator",
+    "joi-pieces-validator"
+  ]
+}
