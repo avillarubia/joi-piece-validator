@@ -11,12 +11,12 @@ npm install --save joi-piece-validator
 ## Importing
 
 ```js
-import PropTypes from 'joi-piece-validator'; // ES6
-var PropTypes = require('joi-piece-validator'); // ES5 with npm
+import validateJoiPieces from 'joi-piece-validator'; // ES6
+var validateJoiPieces = require('joi-piece-validator'); // ES5 with npm
 ```
 
 ## Requirements
-```@hapi/joi: 16.1.8```
+```@hapi/joi```
 
 use same @hapi/joi version
 
@@ -24,7 +24,7 @@ use same @hapi/joi version
 
 ```js
 const Joi = require("@hapi/joi")
-const validateJoiPiece = require('joi-piece-validator')
+const validateJoiPieces = require('joi-piece-validator')
 
 //your schema
 const joiSchema = {
@@ -58,6 +58,6 @@ const password = '1'
 const pieces = { email, password }
 
 //Pass the joi schema and the piece(s) to validate.
-const { error } = validateJoiPiece(joiSchema, pieces)
-console.log(error.details[0].message)
+const { error } = validateJoiPieces(joiSchema, pieces)
+console.log(error)
 ```

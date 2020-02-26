@@ -9,6 +9,6 @@ module.exports = (schema, { ...pieces }) => {
         schemaPieces[key] = _schema[key]
     }
 
-    const isValid = Joi.object(schemaPieces).validate(pieces)
-    return isValid
+    const validatedObj = Joi.object(schemaPieces).validate(pieces)
+    return validatedObj
 }
