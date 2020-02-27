@@ -1,6 +1,6 @@
 # joi-piece-validator
 
-Validate part of the schema.
+- Helps you validate part of the schema.
 
 ## Installation
 
