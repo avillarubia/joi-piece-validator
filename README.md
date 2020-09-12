@@ -22,9 +22,11 @@ use same @hapi/joi version
 
 ## Usage
 
+### Legacy
+
 ```js
 const Joi = require("@hapi/joi")
-const validateJoiPieces = require('joi-piece-validator')
+const { validateJoiPieces } = require('joi-piece-validator')
 
 //your schema
 const joiSchema = {
@@ -60,4 +62,68 @@ const pieces = { email, password }
 //Pass the joi schema and the piece(s) to validate.
 const { error } = validateJoiPieces(joiSchema, pieces)
 console.log(error)
+```
+
+### Validate params using middleware
+
+```js
+const Joi = require("@hapi/joi")
+const { validateParams } = require('joi-piece-validator')
+
+const joiSchema = {
+    keyword: Joi.string()
+        .max(50)
+        .required(),
+    place_type: Joi.string()
+        .max(50)
+        .required()
+}
+
+//Example of requesting url: http://localhost:3000/api/places/tokyo/region
+//This will validate values of params (keyword and place_type)
+route.get('/:keyword/:place_type', validateParams(joiSchema), async(req, res, next) => {
+    ... await
+})
+```
+
+### Validate query using middleware
+
+```js
+const Joi = require("@hapi/joi")
+const { validateQuery } = require('joi-piece-validator')
+
+const joiSchema = {
+    keyword: Joi.string()
+        .max(50)
+        .required(),
+    place_type: Joi.string()
+        .max(50)
+        .required()
+}
+
+//Example of requesting url: http://localhost:3000/api/places?keyword=tokyo&place_type=region
+//This will validate values of query (keyword and place_type)
+route.get('/', validateQuery(joiSchema), async(req, res, next) => {
+    ... await
+})
+```
+
+### Validate body using middleware
+
+```js
+const Joi = require("@hapi/joi")
+const { validateBody } = require('joi-piece-validator')
+
+const joiSchema = {
+    keyword: Joi.string()
+        .max(50)
+        .required(),
+    place_type: Joi.string()
+        .max(50)
+        .required()
+}
+
+route.get('/:keyword/:place_type', validateBody(joiSchema), async(req, res, next) => {
+    ... await
+})
 ```
