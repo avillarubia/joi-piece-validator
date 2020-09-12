@@ -19,9 +19,7 @@ const validateBody = (schema) => {
         if (!body)
             return res.send('No provided body.').status(400)
 
-        const schemaPieces = extractSchemaPieces(schema, body)
-
-        const error = validate(schemaPieces, body)
+        const error = validate(schema, body)
         if (error)
             return res.send(error.details[0].message).status(400)
 
