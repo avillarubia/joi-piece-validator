@@ -1,5 +1,5 @@
 const Joi = require("@hapi/joi")
-const validatePieces = require('../../index')
+const { validateJoiPieces } = require('../../index')
 
 const joiRegisterSchema = {
     email: Joi.string()
@@ -35,5 +35,5 @@ joiRegisterSchema['confirm_password'] = Joi.string()
     .max(50)
     .required()
 
-const { error } = validatePieces(joiRegisterSchema, pieces)
+const { error } = validateJoiPieces(joiRegisterSchema, pieces)
 console.log(error.details[0].message)
