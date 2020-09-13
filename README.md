@@ -22,7 +22,7 @@ use same @hapi/joi version
 
 ## Usage
 
-### Legacy
+### Validate
 
 ```js
 const Joi = require("@hapi/joi")
@@ -64,7 +64,7 @@ const { error } = validateJoiPieces(joiSchema, pieces)
 console.log(error)
 ```
 
-### Validate params using middleware
+### Validate params using validateParams middleware
 
 ```js
 const Joi = require("@hapi/joi")
@@ -86,7 +86,7 @@ route.get('/:keyword/:place_type', validateParams(joiSchema), async(req, res, ne
 })
 ```
 
-### Validate query using middleware
+### Validate query using validateQuery middleware
 
 ```js
 const Joi = require("@hapi/joi")
@@ -108,7 +108,7 @@ route.get('/', validateQuery(joiSchema), async(req, res, next) => {
 })
 ```
 
-### Validate body using middleware
+### Validate body using validateBody middleware
 
 ```js
 const Joi = require("@hapi/joi")
