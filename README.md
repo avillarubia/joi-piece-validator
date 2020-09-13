@@ -1,6 +1,7 @@
 # joi-piece-validator
 
 - Helps you validate part of the schema.
+- For middleware function will return the validation error inside the response
 
 ## Installation
 
