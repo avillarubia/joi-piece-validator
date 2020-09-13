@@ -123,7 +123,7 @@ const joiSchema = {
         .required()
 }
 
-route.get('/:keyword/:place_type', validateBody(joiSchema), async(req, res, next) => {
+route.get('/', validateBody(joiSchema), async(req, res, next) => {
     ... await
 })
 ```
