@@ -84,6 +84,8 @@ const joiSchema = {
 route.get('/:keyword/:place_type', validateParams(joiSchema), async(req, res, next) => {
     ... await
 })
+
+//will return the validation error inside response
 ```
 
 ### Validate query using validateQuery middleware
@@ -106,6 +108,8 @@ const joiSchema = {
 route.get('/', validateQuery(joiSchema), async(req, res, next) => {
     ... await
 })
+
+//will return the validation error inside response
 ```
 
 ### Validate body using validateBody middleware
@@ -126,4 +130,6 @@ const joiSchema = {
 route.get('/', validateBody(joiSchema), async(req, res, next) => {
     ... await
 })
+
+//will return the validation error inside response
 ```
