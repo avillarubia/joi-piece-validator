@@ -65,7 +65,7 @@ const { error } = validateJoiPieces(joiSchema, pieces)
 console.log(error)
 ```
 
-### Validate params using validateParams middleware
+### Validate req.params using validateParams middleware
 
 ```js
 const Joi = require("@hapi/joi")
@@ -89,7 +89,7 @@ route.get('/:keyword/:place_type', validateParams(joiSchema), async(req, res, ne
 //will return the validation error inside response
 ```
 
-### Validate query using validateQuery middleware
+### Validate req.query using validateQuery middleware
 
 ```js
 const Joi = require("@hapi/joi")
@@ -113,7 +113,7 @@ route.get('/', validateQuery(joiSchema), async(req, res, next) => {
 //will return the validation error inside response
 ```
 
-### Validate body using validateBody middleware
+### Validate req.body using validateBody middleware
 
 ```js
 const Joi = require("@hapi/joi")
@@ -128,7 +128,17 @@ const joiSchema = {
         .required()
 }
 
+//validateBody(joiSchema, selectively=false)
+//selectively=false is the default value
+//will validate all items in req.body
 route.get('/', validateBody(joiSchema), async(req, res, next) => {
+    ... await
+})
+
+//validateBody(joiSchema, selectively=true)
+//will only use schema items based on the items from req.body
+//validate only req.body items that found inside the schema
+route.get('/', validateBody(joiSchema, true), async(req, res, next) => {
     ... await
 })
 
