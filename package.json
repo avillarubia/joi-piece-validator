@@ -9,7 +9,7 @@
   "author": "aljohn villarubia",
   "license": "ISC",
   "dependencies": {
-    "@hapi/joi": "^17.1.1"
+    "joi": "^17.3.0"
   },
   "repository": "https://github.com/avillarubia/joi-piece-validator",
   "keywords": [
