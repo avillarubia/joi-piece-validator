@@ -26,7 +26,7 @@ use same joi version
 ### Validate
 
 ```js
-const Joi = require("@hapi/joi")
+const Joi = require("joi")
 const { validateJoiPieces } = require('joi-piece-validator')
 
 //your schema
@@ -68,7 +68,7 @@ console.log(error)
 ### Validate req.params using validateParams middleware
 
 ```js
-const Joi = require("@hapi/joi")
+const Joi = require("joi")
 const { validateParams } = require('joi-piece-validator')
 
 const joiSchema = {
@@ -92,7 +92,7 @@ route.get('/:keyword/:place_type', validateParams(joiSchema), async(req, res, ne
 ### Validate req.query using validateQuery middleware
 
 ```js
-const Joi = require("@hapi/joi")
+const Joi = require("joi")
 const { validateQuery } = require('joi-piece-validator')
 
 const joiSchema = {
@@ -116,7 +116,7 @@ route.get('/', validateQuery(joiSchema), async(req, res, next) => {
 ### Validate req.body using validateBody middleware
 
 ```js
-const Joi = require("@hapi/joi")
+const Joi = require("joi")
 const { validateBody } = require('joi-piece-validator')
 
 const joiSchema = {
