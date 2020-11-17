@@ -17,9 +17,9 @@ var validateJoiPieces = require('joi-piece-validator'); // ES5 with npm
 ```
 
 ## Requirements
-```@hapi/joi```
+```joi```
 
-use same @hapi/joi version
+use same joi version
 
 ## Usage
 
