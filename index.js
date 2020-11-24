@@ -12,7 +12,7 @@ const validateBody = (schema, selectively = false) => {
         const { body } = req
 
         if (!body)
-            return res.send('No provided body.').status(400)
+            return res.status(400).send('No provided body.')
 
         let _schema = schema
 
@@ -22,7 +22,7 @@ const validateBody = (schema, selectively = false) => {
         const error = validate(_schema, body)
 
         if (error)
-            return res.send(error.details[0].message).status(400)
+            return res.status(400).send(error.details[0].message)
 
         next()
     }
@@ -33,13 +33,13 @@ const validateQueries = (schema) => {
         const { query } = req
 
         if (!query)
-            return res.send('No provided queries.').status(400)
+            return res.status(400).send('No provided queries.')
 
         const schemaPieces = extractSchemaPieces(schema, query)
         const error = validate(schemaPieces, query)
 
         if (error)
-            return res.send(error.details[0].message).status(400)
+            return res.status(400).send(error.details[0].message)
 
         next()
     }
@@ -50,13 +50,13 @@ const validateParams = (schema) => {
         const { params } = req
 
         if (!params)
-            return res.send('No provided parameters.').status(400)
+            return res.status(400).send('No provided parameters.')
 
         const schemaPieces = extractSchemaPieces(schema, params)
         const error = validate(schemaPieces, params)
 
         if (error)
-            return res.send(error.details[0].message).status(400)
+            return res.status(400).send(error.details[0].message)
 
         next()
     }
