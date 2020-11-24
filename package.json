@@ -1,6 +1,6 @@
 {
   "name": "joi-piece-validator",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "",
   "main": "piecesValidator.js",
   "scripts": {
