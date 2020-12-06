@@ -68,7 +68,9 @@ function extractSchemaPieces(schema, pieces) {
 
     const schemaPieces = {}
     for (const key of keys) {
-        schemaPieces[key] = _schema[key]
+        if (!_schema[key]) {
+            schemaPieces[key] = _schema[key]
+        }
     }
 
     return schemaPieces

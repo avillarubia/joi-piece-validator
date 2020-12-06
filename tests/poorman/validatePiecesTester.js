@@ -1,5 +1,5 @@
 const Joi = require("@hapi/joi")
-const { validateJoiPieces } = require('../../index')
+const { validateJoiPieces, validateBody } = require('../../index')
 
 const joiRegisterSchema = {
     email: Joi.string()
@@ -28,7 +28,11 @@ const joiRegisterSchema = {
 
 const email = 'test@gmail.com'
 const password = '1'
-const pieces = { email, password }
+let pieces = { email, password }
 
-const { error } = validateJoiPieces(joiRegisterSchema, pieces)
+let { error } = validateJoiPieces(joiRegisterSchema, pieces)
+console.log(error.details[0].message)
+
+pieces = { email, password, test: 'test' }
+error = validateBody(joiRegisterSchema, pieces)
 console.log(error.details[0].message)
